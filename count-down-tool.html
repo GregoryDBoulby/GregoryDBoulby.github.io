@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Finding Oden Cinemas</title>
+        <title>CountDown Tool</title>
         <link rel="stylesheet" href="https://GregoryDBoulby.github.io/theme/css/main.css" />
         <link href="https://GregoryDBoulby.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Data Is Mutating Atom Feed" />
 
@@ -15,28 +15,29 @@
         <header id="banner" class="body">
                 <h1><a href="https://GregoryDBoulby.github.io/">The Data Is Mutating </a></h1>
                 <nav><ul>
-                    <li class="active"><a href="https://GregoryDBoulby.github.io/category/posts.html">posts</a></li>
+                    <li><a href="https://GregoryDBoulby.github.io/category/posts.html">posts</a></li>
+                    <li class="active"><a href="https://GregoryDBoulby.github.io/category/random.html">Random</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="https://GregoryDBoulby.github.io/second-post.html" rel="bookmark"
-           title="Permalink to Finding Oden Cinemas">Finding Oden Cinemas</a></h1>
+        <a href="https://GregoryDBoulby.github.io/count-down-tool.html" rel="bookmark"
+           title="Permalink to CountDown Tool">CountDown Tool</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2018-01-18T22:15:00+00:00">
+        <abbr class="published" title="2018-01-18T20:15:00+00:00">
                 Published: Thu 18 January 2018
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="https://GregoryDBoulby.github.io/author/gregory-d-boulby.html">Gregory D Boulby</a>
         </address>
-<p>In <a href="https://GregoryDBoulby.github.io/category/posts.html">posts</a>.</p>
-<p>tags: <a href="https://GregoryDBoulby.github.io/tag/python-cinemas-webscraping.html">python Cinemas Webscraping</a> </p>
+<p>In <a href="https://GregoryDBoulby.github.io/category/random.html">Random</a>.</p>
+<p>tags: <a href="https://GregoryDBoulby.github.io/tag/python.html">python</a> </p>
 </footer><!-- /.post-info -->      <style type="text/css">/*!
 *
 * IPython notebook
@@ -1009,53 +1010,94 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [138]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Odeon-Cinema-Infographic">Odeon Cinema Infographic<a class="anchor-link" href="#Odeon-Cinema-Infographic">¶</a></h1>
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">countdown</span><span class="p">(</span><span class="n">To</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+    <span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="n">event</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">To</span><span class="p">,</span> <span class="s2">"</span><span class="si">%d</span><span class="s2">-%m-%Y"</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="s2">"</span><span class="si">%d</span><span class="s2">-%m-%Y"</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="n">event</span> <span class="o">!=</span> <span class="n">current</span><span class="p">:</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">day</span> <span class="o"><</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span> <span class="o">+</span> <span class="n">dt</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'There are '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' work days left'</span><span class="p">)</span>
+</pre></div>
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="First-step-is-to-scrape-the-odeon-website-http://www.odeon.co.uk/cinemas/-to-find-the-locations-of-all-odeon-ciemas-in-the-uk">First step is to scrape the odeon website <a href="http://www.odeon.co.uk/cinemas/">http://www.odeon.co.uk/cinemas/</a> to find the locations of all odeon ciemas in the uk<a class="anchor-link" href="#First-step-is-to-scrape-the-odeon-website-http://www.odeon.co.uk/cinemas/-to-find-the-locations-of-all-odeon-ciemas-in-the-uk">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [93]:</div>
+<div class="prompt input_prompt">In [187]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
-<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="k">import</span> <span class="n">urlopen</span> <span class="k">as</span> <span class="n">uReq</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">soup</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">sourceurl</span> <span class="o">=</span> <span class="s1">'http://www.odeon.co.uk/cinemas/'</span> <span class="c1"># Souce of URIs</span>
-
-<span class="n">uClient</span> <span class="o">=</span> <span class="n">uReq</span><span class="p">(</span><span class="n">sourceurl</span><span class="p">)</span>  <span class="c1"># requests html date from url</span>
-<span class="n">page_html</span><span class="o">=</span><span class="n">uClient</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># html info of website</span>
-<span class="n">uClient</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="n">page_soup</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="n">page_html</span><span class="p">,</span> <span class="s2">"html.parser"</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">page_soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">"div"</span><span class="p">,{</span><span class="s2">"class"</span><span class="p">:</span><span class="s2">"selectpicker select-icon-select"</span><span class="p">})[</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">NoOFCinemas</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">'option'</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">NoOFCinemas</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">Number</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"[,\<\>\=</span><span class="se">\"</span><span class="s2">]+"</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">'option'</span><span class="p">)[</span><span class="n">i</span><span class="p">]))[</span><span class="mi">2</span><span class="p">]]</span>
-        <span class="n">List</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"[,\<\>\=]+"</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">'option'</span><span class="p">)[</span><span class="n">i</span><span class="p">]))[</span><span class="mi">3</span><span class="p">]]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">Number</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"[,\<\>\=</span><span class="se">\"</span><span class="s2">]+"</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">'option'</span><span class="p">)[</span><span class="n">i</span><span class="p">]))[</span><span class="mi">2</span><span class="p">])</span>
-        <span class="n">List</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"[,\<\>\=]+"</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">'option'</span><span class="p">)[</span><span class="n">i</span><span class="p">]))[</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">Number</span>
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'ID'</span><span class="p">:</span> <span class="n">Number</span><span class="p">,</span> <span class="s1">'Location'</span><span class="p">:</span> <span class="n">List</span><span class="p">}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
-<span class="n">df</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">freedays</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s2">"</span><span class="si">%d</span><span class="s2">-%m-%Y"</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
+    <span class="n">sdates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'25-12-2017'</span><span class="p">,</span><span class="s1">'26-12-2017'</span><span class="p">,</span><span class="s1">'01-01-2018'</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdates</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">sdates</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">date</span><span class="p">:</span>
+            <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">day</span> <span class="o">></span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">countdown2</span><span class="p">(</span><span class="n">To</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="n">event</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">To</span><span class="p">,</span> <span class="s2">"</span><span class="si">%d</span><span class="s2">-%m-%Y"</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="n">event</span> <span class="o">!=</span> <span class="n">current</span><span class="p">:</span>
+        <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">+</span> <span class="n">freedays2</span><span class="p">(</span><span class="n">current</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"</span><span class="si">%d</span><span class="s2">-%m-%Y"</span><span class="p">))</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span> <span class="o">+</span> <span class="n">dt</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'There are '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' work days left'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">freedays2</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s2">"</span><span class="si">%d</span><span class="s2">-%m-%Y"</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
+    <span class="n">sdates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'Freedays.csv'</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdates</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">sdates</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">date</span><span class="p">:</span>
+            <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">day</span> <span class="o">></span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countdown2</span><span class="p">(</span><span class="s1">'29-11-2017'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1063,498 +1105,10 @@ h6:hover .anchor-link {
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[93]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>ID</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>181</td>
-<td>Andover</td>
-</tr>
-<tr>
-<th>1</th>
-<td>61</td>
-<td>Aylesbury</td>
-</tr>
-<tr>
-<th>2</th>
-<td>62</td>
-<td>Ayr</td>
-</tr>
-<tr>
-<th>3</th>
-<td>63</td>
-<td>Banbury</td>
-</tr>
-<tr>
-<th>4</th>
-<td>149</td>
-<td>Basingstoke</td>
-</tr>
-<tr>
-<th>5</th>
-<td>65</td>
-<td>Bath</td>
-</tr>
-<tr>
-<th>6</th>
-<td>66</td>
-<td>Beckenham</td>
-</tr>
-<tr>
-<th>7</th>
-<td>170</td>
-<td>Belfast</td>
-</tr>
-<tr>
-<th>8</th>
-<td>211</td>
-<td>BFI IMAX</td>
-</tr>
-<tr>
-<th>9</th>
-<td>212</td>
-<td>Birmingham Broadway Plaza</td>
-</tr>
-<tr>
-<th>10</th>
-<td>67</td>
-<td>Birmingham New Street</td>
-</tr>
-<tr>
-<th>11</th>
-<td>68</td>
-<td>Blackpool</td>
-</tr>
-<tr>
-<th>12</th>
-<td>224</td>
-<td>Bournemouth BH2 (New)</td>
-</tr>
-<tr>
-<th>13</th>
-<td>2</td>
-<td>Bracknell</td>
-</tr>
-<tr>
-<th>14</th>
-<td>154</td>
-<td>Braehead</td>
-</tr>
-<tr>
-<th>15</th>
-<td>70</td>
-<td>Bridgend</td>
-</tr>
-<tr>
-<th>16</th>
-<td>71</td>
-<td>Brighton</td>
-</tr>
-<tr>
-<th>17</th>
-<td>72</td>
-<td>Bristol</td>
-</tr>
-<tr>
-<th>18</th>
-<td>73</td>
-<td>Bromborough</td>
-</tr>
-<tr>
-<th>19</th>
-<td>75</td>
-<td>Camden</td>
-</tr>
-<tr>
-<th>20</th>
-<td>76</td>
-<td>Canterbury</td>
-</tr>
-<tr>
-<th>21</th>
-<td>3</td>
-<td>Cardiff</td>
-</tr>
-<tr>
-<th>22</th>
-<td>151</td>
-<td>Chatham</td>
-</tr>
-<tr>
-<th>23</th>
-<td>77</td>
-<td>Chelmsford</td>
-</tr>
-<tr>
-<th>24</th>
-<td>80</td>
-<td>Colchester</td>
-</tr>
-<tr>
-<th>25</th>
-<td>82</td>
-<td>Coventry</td>
-</tr>
-<tr>
-<th>26</th>
-<td>182</td>
-<td>Crewe</td>
-</tr>
-<tr>
-<th>27</th>
-<td>83</td>
-<td>Darlington</td>
-</tr>
-<tr>
-<th>28</th>
-<td>32</td>
-<td>Derby</td>
-</tr>
-<tr>
-<th>29</th>
-<td>214</td>
-<td>Dorchester</td>
-</tr>
-<tr>
-<th>...</th>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr>
-<th>81</th>
-<td>28</td>
-<td>Preston</td>
-</tr>
-<tr>
-<th>82</th>
-<td>119</td>
-<td>Putney - ODEON Luxe</td>
-</tr>
-<tr>
-<th>83</th>
-<td>121</td>
-<td>Richmond</td>
-</tr>
-<tr>
-<th>84</th>
-<td>123</td>
-<td>Rochdale</td>
-</tr>
-<tr>
-<th>85</th>
-<td>124</td>
-<td>Salisbury</td>
-</tr>
-<tr>
-<th>86</th>
-<td>125</td>
-<td>Sheffield</td>
-</tr>
-<tr>
-<th>87</th>
-<td>17</td>
-<td>Silverlink</td>
-</tr>
-<tr>
-<th>88</th>
-<td>126</td>
-<td>South Woodford</td>
-</tr>
-<tr>
-<th>89</th>
-<td>127</td>
-<td>Southampton</td>
-</tr>
-<tr>
-<th>90</th>
-<td>128</td>
-<td>Southend</td>
-</tr>
-<tr>
-<th>91</th>
-<td>129</td>
-<td>Stoke</td>
-</tr>
-<tr>
-<th>92</th>
-<td>130</td>
-<td>Streatham</td>
-</tr>
-<tr>
-<th>93</th>
-<td>18</td>
-<td>Surrey Quays</td>
-</tr>
-<tr>
-<th>94</th>
-<td>185</td>
-<td>Swadlincote</td>
-</tr>
-<tr>
-<th>95</th>
-<td>19</td>
-<td>Swansea</td>
-</tr>
-<tr>
-<th>96</th>
-<td>132</td>
-<td>Swiss Cottage - ODEON Luxe</td>
-</tr>
-<tr>
-<th>97</th>
-<td>30</td>
-<td>Tamworth</td>
-</tr>
-<tr>
-<th>98</th>
-<td>134</td>
-<td>Taunton</td>
-</tr>
-<tr>
-<th>99</th>
-<td>27</td>
-<td>Telford</td>
-</tr>
-<tr>
-<th>100</th>
-<td>216</td>
-<td>Trowbridge</td>
-</tr>
-<tr>
-<th>101</th>
-<td>136</td>
-<td>Tunbridge Wells</td>
-</tr>
-<tr>
-<th>102</th>
-<td>137</td>
-<td>Uxbridge</td>
-</tr>
-<tr>
-<th>103</th>
-<td>29</td>
-<td>Warrington</td>
-</tr>
-<tr>
-<th>104</th>
-<td>215</td>
-<td>West Bromwich</td>
-</tr>
-<tr>
-<th>105</th>
-<td>141</td>
-<td>Weston super Mare</td>
-</tr>
-<tr>
-<th>106</th>
-<td>21</td>
-<td>Whiteleys</td>
-</tr>
-<tr>
-<th>107</th>
-<td>208</td>
-<td>Whiteleys - The Lounge</td>
-</tr>
-<tr>
-<th>108</th>
-<td>142</td>
-<td>Wimbledon</td>
-</tr>
-<tr>
-<th>109</th>
-<td>143</td>
-<td>Worcester</td>
-</tr>
-<tr>
-<th>110</th>
-<td>173</td>
-<td>Wrexham Eagles Meadow</td>
-</tr>
-</tbody>
-</table>
-<p>111 rows × 2 columns</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Using-the-id-and-location-each-cinemas-showing-films-can-be-scraped-using-the-format-http://www.odeon.co.uk/cinemas/{Location}/{ID}/">Using the id and location each cinemas showing films can be scraped using the format <a href="http://www.odeon.co.uk/cinemas/{Location}/{ID}/">http://www.odeon.co.uk/cinemas/{Location}/{ID}/</a><a class="anchor-link" href="#Using-the-id-and-location-each-cinemas-showing-films-can-be-scraped-using-the-format-http://www.odeon.co.uk/cinemas/{Location}/{ID}/">¶</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">total_rows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">total_rows</span><span class="p">):</span>
-    <span class="n">URL</span> <span class="o">=</span> <span class="s2">"http://www.odeon.co.uk/cinemas/"</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s2">"Location"</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s2">"ID"</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"/"</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [108]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">total_rows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">total_rows</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">URL</span> <span class="o">=</span> <span class="s2">"http://www.odeon.co.uk/cinemas/"</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s2">"Location"</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s2">"ID"</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"/"</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">URL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"http://www.odeon.co.uk/cinemas/"</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s2">"Location"</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s2">"ID"</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"/"</span><span class="p">)</span>
-<span class="n">URL</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[108]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>['http://www.odeon.co.uk/cinemas/Andover/181/',
- 'http://www.odeon.co.uk/cinemas/Aylesbury/61/',
- 'http://www.odeon.co.uk/cinemas/Ayr/62/',
- 'http://www.odeon.co.uk/cinemas/Banbury/63/',
- 'http://www.odeon.co.uk/cinemas/Basingstoke/149/',
- 'http://www.odeon.co.uk/cinemas/Bath/65/',
- 'http://www.odeon.co.uk/cinemas/Beckenham/66/',
- 'http://www.odeon.co.uk/cinemas/Belfast/170/',
- 'http://www.odeon.co.uk/cinemas/BFI IMAX/211/',
- 'http://www.odeon.co.uk/cinemas/Birmingham Broadway Plaza/212/',
- 'http://www.odeon.co.uk/cinemas/Birmingham New Street/67/',
- 'http://www.odeon.co.uk/cinemas/Blackpool/68/',
- 'http://www.odeon.co.uk/cinemas/Bournemouth BH2 (New)/224/',
- 'http://www.odeon.co.uk/cinemas/Bracknell/2/',
- 'http://www.odeon.co.uk/cinemas/Braehead/154/',
- 'http://www.odeon.co.uk/cinemas/Bridgend/70/',
- 'http://www.odeon.co.uk/cinemas/Brighton/71/',
- 'http://www.odeon.co.uk/cinemas/Bristol/72/',
- 'http://www.odeon.co.uk/cinemas/Bromborough/73/',
- 'http://www.odeon.co.uk/cinemas/Camden/75/',
- 'http://www.odeon.co.uk/cinemas/Canterbury/76/',
- 'http://www.odeon.co.uk/cinemas/Cardiff/3/',
- 'http://www.odeon.co.uk/cinemas/Chatham/151/',
- 'http://www.odeon.co.uk/cinemas/Chelmsford/77/',
- 'http://www.odeon.co.uk/cinemas/Colchester/80/',
- 'http://www.odeon.co.uk/cinemas/Coventry/82/',
- 'http://www.odeon.co.uk/cinemas/Crewe/182/',
- 'http://www.odeon.co.uk/cinemas/Darlington/83/',
- 'http://www.odeon.co.uk/cinemas/Derby/32/',
- 'http://www.odeon.co.uk/cinemas/Dorchester/214/',
- 'http://www.odeon.co.uk/cinemas/Dudley (Merry Hill)/37/',
- 'http://www.odeon.co.uk/cinemas/Dumfries/85/',
- 'http://www.odeon.co.uk/cinemas/Dundee/86/',
- 'http://www.odeon.co.uk/cinemas/Dunfermline/87/',
- 'http://www.odeon.co.uk/cinemas/East Kilbride - ODEON Luxe/33/',
- 'http://www.odeon.co.uk/cinemas/Edinburgh Fort Kinnaird/219/',
- 'http://www.odeon.co.uk/cinemas/Edinburgh Lothian Road/108/',
- 'http://www.odeon.co.uk/cinemas/Edinburgh West - ODEON Luxe/140/',
- 'http://www.odeon.co.uk/cinemas/Epsom/88/',
- 'http://www.odeon.co.uk/cinemas/Exeter/90/',
- 'http://www.odeon.co.uk/cinemas/Glasgow Quay - ODEON Luxe/120/',
- 'http://www.odeon.co.uk/cinemas/Greenwich/6/',
- 'http://www.odeon.co.uk/cinemas/Guildford/92/',
- 'http://www.odeon.co.uk/cinemas/Harrogate/93/',
- 'http://www.odeon.co.uk/cinemas/Hastings/94/',
- 'http://www.odeon.co.uk/cinemas/Hatfield/7/',
- 'http://www.odeon.co.uk/cinemas/Hereford/217/',
- 'http://www.odeon.co.uk/cinemas/Holloway/97/',
- 'http://www.odeon.co.uk/cinemas/Huddersfield/8/',
- 'http://www.odeon.co.uk/cinemas/Hull/98/',
- 'http://www.odeon.co.uk/cinemas/Kettering/100/',
- 'http://www.odeon.co.uk/cinemas/Kilmarnock/101/',
- 'http://www.odeon.co.uk/cinemas/Kingston/102/',
- 'http://www.odeon.co.uk/cinemas/Lee Valley/9/',
- 'http://www.odeon.co.uk/cinemas/Leeds-Bradford - ODEON Luxe/103/',
- 'http://www.odeon.co.uk/cinemas/Leicester/104/',
- 'http://www.odeon.co.uk/cinemas/Lincoln/106/',
- 'http://www.odeon.co.uk/cinemas/Liverpool ONE/171/',
- 'http://www.odeon.co.uk/cinemas/Liverpool Switch Island/133/',
- 'http://www.odeon.co.uk/cinemas/Llanelli/213/',
- 'http://www.odeon.co.uk/cinemas/London Covent Garden/81/',
- 'http://www.odeon.co.uk/cinemas/London Haymarket - ODEON Luxe/117/',
- 'http://www.odeon.co.uk/cinemas/London Leicester Square/105/',
- 'http://www.odeon.co.uk/cinemas/London Tottenham Court Road/135/',
- 'http://www.odeon.co.uk/cinemas/Loughborough/183/',
- 'http://www.odeon.co.uk/cinemas/Maidenhead/10/',
- 'http://www.odeon.co.uk/cinemas/Maidstone/109/',
- 'http://www.odeon.co.uk/cinemas/Manchester Great Northern/225/',
- 'http://www.odeon.co.uk/cinemas/Manchester Trafford Centre/20/',
- 'http://www.odeon.co.uk/cinemas/Mansfield/110/',
- 'http://www.odeon.co.uk/cinemas/Metrocentre/174/',
- 'http://www.odeon.co.uk/cinemas/Milton Keynes Stadium/218/',
- 'http://www.odeon.co.uk/cinemas/Newark/184/',
- 'http://www.odeon.co.uk/cinemas/Northwich Barons Quay/223/',
- 'http://www.odeon.co.uk/cinemas/Norwich/13/',
- 'http://www.odeon.co.uk/cinemas/Nuneaton/114/',
- 'http://www.odeon.co.uk/cinemas/Oldham/222/',
- 'http://www.odeon.co.uk/cinemas/Orpington/221/',
- 'http://www.odeon.co.uk/cinemas/Oxford George St/115/',
- 'http://www.odeon.co.uk/cinemas/Oxford Magdalen St/116/',
- 'http://www.odeon.co.uk/cinemas/Port Solent/15/',
- 'http://www.odeon.co.uk/cinemas/Preston/28/',
- 'http://www.odeon.co.uk/cinemas/Putney - ODEON Luxe/119/',
- 'http://www.odeon.co.uk/cinemas/Richmond/121/',
- 'http://www.odeon.co.uk/cinemas/Rochdale/123/',
- 'http://www.odeon.co.uk/cinemas/Salisbury/124/',
- 'http://www.odeon.co.uk/cinemas/Sheffield/125/',
- 'http://www.odeon.co.uk/cinemas/Silverlink/17/',
- 'http://www.odeon.co.uk/cinemas/South Woodford/126/',
- 'http://www.odeon.co.uk/cinemas/Southampton/127/',
- 'http://www.odeon.co.uk/cinemas/Southend/128/',
- 'http://www.odeon.co.uk/cinemas/Stoke/129/',
- 'http://www.odeon.co.uk/cinemas/Streatham/130/',
- 'http://www.odeon.co.uk/cinemas/Surrey Quays/18/',
- 'http://www.odeon.co.uk/cinemas/Swadlincote/185/',
- 'http://www.odeon.co.uk/cinemas/Swansea/19/',
- 'http://www.odeon.co.uk/cinemas/Swiss Cottage - ODEON Luxe/132/',
- 'http://www.odeon.co.uk/cinemas/Tamworth/30/',
- 'http://www.odeon.co.uk/cinemas/Taunton/134/',
- 'http://www.odeon.co.uk/cinemas/Telford/27/',
- 'http://www.odeon.co.uk/cinemas/Trowbridge/216/',
- 'http://www.odeon.co.uk/cinemas/Tunbridge Wells/136/',
- 'http://www.odeon.co.uk/cinemas/Uxbridge/137/',
- 'http://www.odeon.co.uk/cinemas/Warrington/29/',
- 'http://www.odeon.co.uk/cinemas/West Bromwich/215/',
- 'http://www.odeon.co.uk/cinemas/Weston super Mare/141/',
- 'http://www.odeon.co.uk/cinemas/Whiteleys/21/',
- 'http://www.odeon.co.uk/cinemas/Whiteleys - The Lounge/208/',
- 'http://www.odeon.co.uk/cinemas/Wimbledon/142/',
- 'http://www.odeon.co.uk/cinemas/Worcester/143/',
- 'http://www.odeon.co.uk/cinemas/Wrexham Eagles Meadow/173/']</pre>
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>There are 2 work days left
+</pre>
 </div>
 </div>
 </div>
